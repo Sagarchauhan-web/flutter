@@ -5,25 +5,33 @@ class Shop extends ChangeNotifier {
   // Products
   final List<Product> _shop = [
     Product(
-        name: "Product 1",
-        description: "This is product 1",
-        price: 100,
-        imagePath: '/'),
+      name: "Ceramic Planters",
+      description:
+          "These pots are made from ceramic material, which provides good insulation for plant roots.",
+      price: 100,
+      imagePath: "assets/1.jpg",
+    ),
     Product(
-        name: "Product 2",
-        description: "This is product 2",
-        price: 100,
-        imagePath: '/'),
+      name: "Terracotta Pots",
+      description:
+          "Terracotta pots are made from natural clay and have a rustic, earthy appearance.",
+      price: 100,
+      imagePath: "assets/2.jpg",
+    ),
     Product(
-        name: "Product 3",
-        description: "This is product 3",
-        price: 100,
-        imagePath: '/'),
+      name: "Hanging Baskets",
+      description:
+          "Hanging baskets are suspended from hooks or brackets, creating a beautiful display of trailing plants.",
+      price: 100,
+      imagePath: "assets/4.jpg",
+    ),
     Product(
-        name: "Product 4",
-        description: "This is product 4",
-        price: 100,
-        imagePath: '/'),
+      name: "Self-Watering Planters",
+      description:
+          "These innovative pots have a built-in reservoir that provides water to the plant as needed.",
+      price: 100,
+      imagePath: "assets/5.jpg",
+    ),
   ];
 
   // user cart
