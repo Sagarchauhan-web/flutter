@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import "package:flutter/widgets.dart";
 import "package:simple_ecommerce/components/my_list_tile.dart";
+import "package:simple_ecommerce/pages/intro_page.dart";
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
@@ -39,8 +40,14 @@ class MyDrawer extends StatelessWidget {
           // Shop Tile
           Padding(
               padding: const EdgeInsets.all(20.0),
-              child:
-                  MyListTile(text: "Exit", icon: Icons.logout, onTap: () {})),
+              child: MyListTile(
+                  text: "Exit",
+                  icon: Icons.logout,
+                  onTap: () => Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const IntroPage()),
+                      (route) => false))),
         ],
       ),
     );
