@@ -15,7 +15,10 @@ class CartPage extends StatelessWidget {
     void payButtonPressed(BuildContext context) {
       showDialog(
         context: context,
-        builder: (context) => const AlertDialog(
+        builder: (context) => AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(0.0),
+          ),
           content: Text("User wants to pay connect to your backend..."),
         ),
       );
@@ -26,16 +29,25 @@ class CartPage extends StatelessWidget {
         context: context,
         builder: (context) => AlertDialog(
           content: const Text("Remove this item from your cart?"),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(0.0),
+          ),
           actions: [
-            MaterialButton(
+            ElevatedButton(
                 onPressed: () => Navigator.pop(context),
-                child: const Text("Cancel")),
-            MaterialButton(
+                child: const Text(
+                  "Cancel",
+                  style: TextStyle(color: Colors.black),
+                )),
+            ElevatedButton(
                 onPressed: () {
                   Navigator.pop(context);
                   context.read<Shop>().removeFromCart(product);
                 },
-                child: const Text("Yes")),
+                child: const Text(
+                  "Yes",
+                  style: TextStyle(color: Colors.black),
+                )),
           ],
         ),
       );
@@ -59,12 +71,31 @@ class CartPage extends StatelessWidget {
                       itemBuilder: (context, index) {
                         final item = cart[index];
 
-                        return ListTile(
-                          title: Text(item.name),
-                          subtitle: Text(item.price.toStringAsFixed(2)),
-                          trailing: IconButton(
-                            icon: const Icon(Icons.remove),
-                            onPressed: () => removeItemFromCart(context, item),
+                        return Container(
+                          margin: const EdgeInsets.only(
+                              left: 10, right: 10, bottom: 5, top: 5),
+                          decoration: BoxDecoration(
+                            color: Theme.of(context).colorScheme.primary,
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: ListTile(
+                            leading: ClipRRect(
+                              borderRadius: BorderRadius.circular(
+                                  10.0), // Adjust the radius as needed
+                              child: Image.asset(item.imagePath),
+                            ),
+                            title: Text(item.name),
+                            subtitle: Row(
+                              children: [
+                                const Text(" \$ "),
+                                Text(item.price.toStringAsFixed(2)),
+                              ],
+                            ),
+                            trailing: IconButton(
+                              icon: const Icon(Icons.delete, color: Colors.red),
+                              onPressed: () =>
+                                  removeItemFromCart(context, item),
+                            ),
                           ),
                         );
                       },
@@ -76,7 +107,7 @@ class CartPage extends StatelessWidget {
               padding: const EdgeInsets.all(50.0),
               child: MyButton(
                   onTap: () => payButtonPressed(context),
-                  child: const Text("PAY NOW")),
+                  child: const Center(child: Text("PAY NOW"))),
             )
           ],
         ));

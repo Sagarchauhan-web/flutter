@@ -14,20 +14,22 @@ class MyDrawer extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Column(children: [
-            DrawerHeader(
+            Padding(
+              padding: EdgeInsets.only(top: 80.0, bottom: 20.0),
               child: Center(
                 child: Icon(Icons.shopping_bag,
                     size: 72,
                     color: Theme.of(context).colorScheme.inversePrimary),
               ),
             ),
-            const SizedBox(height: 25),
+            // const SizedBox(height: 25),
 
             // Shop Tile
             MyListTile(
                 text: "Shop",
                 icon: Icons.shop,
                 onTap: () => Navigator.pop(context)),
+
             // cart Tile
             MyListTile(
                 text: "Cart",

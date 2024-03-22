@@ -13,17 +13,28 @@ class MyProductTile extends StatelessWidget {
     showDialog(
         context: context,
         builder: (context) => AlertDialog(
-                content: const Text("Add this item to your cart?"),
+                content: Padding(
+                    padding: EdgeInsets.all(25.0),
+                    child: const Text("Add this item to your cart?")),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(0.0),
+                ),
                 actions: [
-                  MaterialButton(
+                  ElevatedButton(
                       onPressed: () => Navigator.pop(context),
-                      child: const Text("Cancel")),
-                  MaterialButton(
+                      child: const Text(
+                        "Cancel",
+                        style: TextStyle(color: Colors.black),
+                      )),
+                  ElevatedButton(
                       onPressed: () {
                         Navigator.pop(context);
                         context.read<Shop>().addToCart(product);
                       },
-                      child: const Text("Yes")),
+                      child: const Text(
+                        "Yes",
+                        style: TextStyle(color: Colors.black),
+                      )),
                 ]));
   }
 
@@ -73,7 +84,12 @@ class MyProductTile extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(product.price.toStringAsFixed(2)),
+              Row(
+                children: [
+                  const Text(" \$ "),
+                  Text(product.price.toStringAsFixed(2)),
+                ],
+              ),
               Container(
                 decoration: BoxDecoration(
                   color: Theme.of(context).colorScheme.secondary,
