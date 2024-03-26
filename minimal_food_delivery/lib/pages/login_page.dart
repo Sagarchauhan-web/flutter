@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import "package:flutter/widgets.dart";
 import "package:minimal_food_delivery/components/my_button.dart";
 import "package:minimal_food_delivery/components/my_text_field.dart";
+import "package:minimal_food_delivery/pages/home_page.dart";
 
 class LoginPage extends StatefulWidget {
   final void Function()? onTap;
@@ -19,9 +20,9 @@ class _LoginPageState extends State<LoginPage> {
   void login() {
     // TODO: Add login functionality
 
-    // Navigator.push(context, MaterialPageRoute(builder: (context) {
-    //   return const HomePage();
-    // }));
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return const HomePage();
+    }));
   }
 
   @override
@@ -65,7 +66,7 @@ class _LoginPageState extends State<LoginPage> {
             const SizedBox(
               height: 25,
             ),
-            MyButton(text: "Sign in", onTap: () {}),
+            MyButton(text: "Sign in", onTap: login),
             const SizedBox(
               height: 25,
             ),
