@@ -1,13 +1,15 @@
+import 'package:flutter/material.dart';
+
 import 'food.dart';
 
-class Restaurant {
+class Restaurant extends ChangeNotifier {
   final List<Food> _menu = [
     // Burgers
     Food(
       name: "Cheese Delight Burger",
       description:
           "This burger comes with a juicy beef patty, melted cheddar cheese, and a light spread of mustard.",
-      imagePath: "assets/images/burgers/1.jpg",
+      imagePath: "lib/images/burgers/1.jpg",
       price: 1.49,
       category: FoodCategory.burgers,
       availableAddons: [
@@ -29,7 +31,7 @@ class Restaurant {
       name: "Spicy Chicken Burger",
       description:
           "Spiced with a blend of herbs, this chicken burger is topped with lettuce and mayo for a cool finish.",
-      imagePath: "assets/images/burgers/2.jpg",
+      imagePath: "lib/images/burgers/2.jpg",
       price: 1.99,
       category: FoodCategory.burgers,
       availableAddons: [
@@ -51,7 +53,7 @@ class Restaurant {
       name: "Veggie Supreme Burger",
       description:
           "A delightful mix of grilled vegetables, this burger is served with a tangy sauce and fresh greens.",
-      imagePath: "assets/images/burgers/3.jpg",
+      imagePath: "lib/images/burgers/3.jpg",
       price: 1.29,
       category: FoodCategory.burgers,
       availableAddons: [
@@ -73,7 +75,7 @@ class Restaurant {
       name: "BBQ Bacon Burger",
       description:
           "Smothered in BBQ sauce, this burger has crispy bacon and onion rings for a savory crunch.",
-      imagePath: "assets/images/burgers/4.jpg",
+      imagePath: "lib/images/burgers/4.jpg",
       price: 2.49,
       category: FoodCategory.burgers,
       availableAddons: [
@@ -95,7 +97,7 @@ class Restaurant {
       name: "Fish Fillet Burger",
       description:
           "Featuring a crispy fish fillet, this burger is complemented with tartar sauce and shredded lettuce.",
-      imagePath: "assets/images/burgers/5.jpg",
+      imagePath: "lib/images/burgers/5.jpg",
       price: 2.19,
       category: FoodCategory.burgers,
       availableAddons: [
@@ -119,7 +121,7 @@ class Restaurant {
       name: "Chocolate Lava Cake",
       description:
           "A rich and gooey chocolate cake with a molten center, served warm.",
-      imagePath: "assets/images/desserts/1.jpg",
+      imagePath: "lib/images/desserts/1.jpg",
       price: 2.99,
       category: FoodCategory.desserts,
       availableAddons: [
@@ -141,7 +143,7 @@ class Restaurant {
       name: "New York Cheesecake",
       description:
           "A creamy and smooth cheesecake with a buttery graham cracker crust.",
-      imagePath: "assets/images/desserts/2.jpg",
+      imagePath: "lib/images/desserts/2.jpg",
       price: 3.49,
       category: FoodCategory.desserts,
       availableAddons: [
@@ -163,7 +165,7 @@ class Restaurant {
       name: "Apple Pie a la Mode",
       description:
           "A classic apple pie with a flaky crust, served with a scoop of vanilla ice cream.",
-      imagePath: "assets/images/desserts/3.jpg",
+      imagePath: "lib/images/desserts/3.jpg",
       price: 2.79,
       category: FoodCategory.desserts,
       availableAddons: [
@@ -185,7 +187,7 @@ class Restaurant {
       name: "Tiramisu",
       description:
           "An Italian dessert with layers of coffee-soaked ladyfingers and mascarpone cheese, dusted with cocoa powder.",
-      imagePath: "assets/images/desserts/4.jpg",
+      imagePath: "lib/images/desserts/4.jpg",
       price: 3.99,
       category: FoodCategory.desserts,
       availableAddons: [
@@ -207,7 +209,7 @@ class Restaurant {
       name: "Fruit Tart",
       description:
           "A sweet pastry crust filled with custard and topped with an assortment of fresh fruits.",
-      imagePath: "assets/images/desserts/5.jpg",
+      imagePath: "lib/images/desserts/5.jpg",
       price: 2.49,
       category: FoodCategory.desserts,
       availableAddons: [
@@ -231,7 +233,7 @@ class Restaurant {
       name: "Classic Lemonade",
       description:
           "A refreshing drink made from freshly squeezed lemons, sugar, and water, served over ice.",
-      imagePath: "assets/images/drinks/1.jpg",
+      imagePath: "lib/images/drinks/1.jpg",
       price: 1.99,
       category: FoodCategory.drinks,
       availableAddons: [
@@ -253,7 +255,7 @@ class Restaurant {
       name: "Iced Coffee",
       description:
           "Cold brew coffee served over ice with a touch of milk and sugar.",
-      imagePath: "assets/images/drinks/2.jpg",
+      imagePath: "lib/images/drinks/2.jpg",
       price: 2.49,
       category: FoodCategory.drinks,
       availableAddons: [
@@ -275,7 +277,7 @@ class Restaurant {
       name: "Strawberry Smoothie",
       description:
           "A creamy smoothie made with ripe strawberries, yogurt, and a hint of honey.",
-      imagePath: "assets/images/drinks/3.jpg",
+      imagePath: "lib/images/drinks/3.jpg",
       price: 3.29,
       category: FoodCategory.drinks,
       availableAddons: [
@@ -297,7 +299,7 @@ class Restaurant {
       name: "Mango Lassi",
       description:
           "A traditional Indian yogurt-based drink blended with mango pulp and a touch of cardamom.",
-      imagePath: "assets/images/drinks/4.jpg",
+      imagePath: "lib/images/drinks/4.jpg",
       price: 2.99,
       category: FoodCategory.drinks,
       availableAddons: [
@@ -319,7 +321,7 @@ class Restaurant {
       name: "Green Tea",
       description:
           "A soothing cup of green tea, known for its antioxidants and calming properties.",
-      imagePath: "assets/images/drinks/5.jpg",
+      imagePath: "lib/images/drinks/5.jpg",
       price: 1.49,
       category: FoodCategory.drinks,
       availableAddons: [
@@ -343,7 +345,7 @@ class Restaurant {
       name: "Caesar Salad",
       description:
           "Crisp romaine lettuce, parmesan cheese, and croutons, all tossed in a creamy Caesar dressing.",
-      imagePath: "assets/images/salads/1.jpg",
+      imagePath: "lib/images/salads/1.jpg",
       price: 2.99,
       category: FoodCategory.salads,
       availableAddons: [
@@ -365,7 +367,7 @@ class Restaurant {
       name: "Greek Salad",
       description:
           "A colorful salad with cucumber, tomatoes, red onions, olives, and feta cheese, dressed with olive oil.",
-      imagePath: "assets/images/salads/2.jpg",
+      imagePath: "lib/images/salads/2.jpg",
       price: 3.49,
       category: FoodCategory.salads,
       availableAddons: [
@@ -387,7 +389,7 @@ class Restaurant {
       name: "Garden Salad",
       description:
           "A fresh mix of lettuce, carrots, tomatoes, cucumbers, and your choice of dressing.",
-      imagePath: "assets/images/salads/3.jpg",
+      imagePath: "lib/images/salads/3.jpg",
       price: 1.99,
       category: FoodCategory.salads,
       availableAddons: [
@@ -409,7 +411,7 @@ class Restaurant {
       name: "Quinoa Salad",
       description:
           "Nutritious quinoa tossed with bell peppers, corn, beans, and a zesty lime dressing.",
-      imagePath: "assets/images/salads/4.jpg",
+      imagePath: "lib/images/salads/4.jpg",
       price: 3.29,
       category: FoodCategory.salads,
       availableAddons: [
@@ -431,7 +433,7 @@ class Restaurant {
       name: "Fruit Salad",
       description:
           "A sweet and refreshing mix of seasonal fruits, perfect for a light dessert or side.",
-      imagePath: "assets/images/salads/5.jpg",
+      imagePath: "lib/images/salads/5.jpg",
       price: 2.49,
       category: FoodCategory.salads,
       availableAddons: [
@@ -455,7 +457,7 @@ class Restaurant {
       name: "Sweet Potato Fries",
       description:
           "Crispy and lightly seasoned sweet potato fries, served with a side of spicy mayo dip.",
-      imagePath: "assets/images/sides1.jpg",
+      imagePath: "lib/images/sides/1.jpg",
       price: 1.99,
       category: FoodCategory.sides,
       availableAddons: [
@@ -477,7 +479,7 @@ class Restaurant {
       name: "Garlic Bread",
       description:
           "Toasted bread slices, buttered and topped with garlic and herbs, served with marinara sauce.",
-      imagePath: "assets/images/sides/2.jpg",
+      imagePath: "lib/images/sides/2.jpg",
       price: 1.49,
       category: FoodCategory.sides,
       availableAddons: [
@@ -499,7 +501,7 @@ class Restaurant {
       name: "Coleslaw",
       description:
           "A classic side of shredded cabbage and carrots in a creamy dressing.",
-      imagePath: "assets/images/sides/3.jpg",
+      imagePath: "lib/images/sides/3.jpg",
       price: 0.99,
       category: FoodCategory.sides,
       availableAddons: [
@@ -521,7 +523,7 @@ class Restaurant {
       name: "Mac and Cheese",
       description:
           "Creamy and cheesy macaroni pasta, baked to golden perfection.",
-      imagePath: "assets/images/sides/4.jpg",
+      imagePath: "lib/images/sides/4.jpg",
       price: 2.49,
       category: FoodCategory.sides,
       availableAddons: [
@@ -543,7 +545,7 @@ class Restaurant {
       name: "Onion Rings",
       description:
           "Golden and crispy onion rings, served with a tangy dipping sauce.",
-      imagePath: "assets/images/sides/5.jpg",
+      imagePath: "lib/images/sides/5.jpg",
       price: 1.79,
       category: FoodCategory.sides,
       availableAddons: [
@@ -562,4 +564,20 @@ class Restaurant {
       ],
     ),
   ];
+
+  // Getters
+  List<Food> get menu => _menu;
+
+  // Operations
+
+  // Add to cart
+  // remove from cart
+  // get total price of cart
+  // get total number of items
+  // Clear cart
+
+  // Helpers
+  // generate a receipt
+  // format double value into money
+  // format list of addons into a string summary
 }
