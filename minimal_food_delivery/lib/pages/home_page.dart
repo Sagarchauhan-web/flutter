@@ -8,6 +8,7 @@ import "package:minimal_food_delivery/components/my_sliver_app_bar.dart";
 import "package:minimal_food_delivery/components/my_tab_bar.dart";
 import "package:minimal_food_delivery/model/food.dart";
 import "package:minimal_food_delivery/model/restaurant.dart";
+import "package:minimal_food_delivery/pages/food_page.dart";
 import "package:provider/provider.dart";
 
 class HomePage extends StatefulWidget {
@@ -46,13 +47,17 @@ class _HomePageState extends State<HomePage>
 
       return ListView.builder(
           itemCount: categoryMenu.length,
-          padding: EdgeInsets.zero,
+          padding: EdgeInsets.all(0),
           physics: const NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) {
             final food = categoryMenu[index];
             return FoodTile(
               food: food,
-              onTap: () {},
+              onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => FoodPage(food: food),
+                  )),
             );
           });
     }).toList();
